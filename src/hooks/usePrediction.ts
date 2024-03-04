@@ -9,8 +9,14 @@ import { CreatePredictionType } from "@/types";
 export const useCreatePrediction = () => {
   return useMutation({
     mutationKey: [queryKeys.CREATE_PREDICTION],
-    mutationFn: (data: CreatePredictionType) => {
-      return predictionService.createPrediction(data);
+    mutationFn: ({
+      userTgId,
+      data,
+    }: {
+      data: CreatePredictionType;
+      userTgId?: number;
+    }) => {
+      return predictionService.createPrediction(data, userTgId);
     },
     onSuccess() {
       queryClient.invalidateQueries({

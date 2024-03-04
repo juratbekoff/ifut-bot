@@ -1,8 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Route, Routes } from "react-router-dom";
 import { Home, Match, Payment } from "./pages";
 import { Footer, Navbar } from "./components";
+import { useTelegram } from "@/hooks/useTelegram";
+import { useEffect } from "react";
 
 const App = () => {
+  const { tg } = useTelegram();
+
+  useEffect(() => {
+    tg.ready();
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen w-[80%] mx-auto max-lg:w-full container">
       <Navbar />

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useFetchMatches } from "@/hooks/useMatch";
 import { MatchCard } from "../components";
@@ -5,15 +6,20 @@ import Input from "../components/ui-custom/input";
 import { FetchMatchesType } from "@/types";
 import { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters as Loader } from "react-icons/ai";
+import { useTelegram } from "@/hooks/useTelegram";
 
 const Home = () => {
   const [keyword, setKeyword] = useState("");
+  const { tg } = useTelegram();
 
-  const fetchMatchQuery = useFetchMatches({
-    page: 1,
-    limit: 10,
-    keyword,
-  });
+  const fetchMatchQuery = useFetchMatches(
+    {
+      page: 1,
+      limit: 10,
+      keyword,
+    },
+    tg.initDataUnsafe.chat?.id!
+  );
 
   useEffect(() => {
     fetchMatchQuery.refetch();

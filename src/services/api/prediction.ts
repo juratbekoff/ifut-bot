@@ -1,13 +1,9 @@
 import { CreatePredictionType } from "@/types";
 import { api } from "../configs";
 
-Telegram.WebApp.ready();
-
 class Prediction {
-  createPrediction = async (data: CreatePredictionType) => {
-    const testUserId = Telegram.WebApp.initDataUnsafe.user?.id;
-
-    return await api.post(`/prediction`, { userTgId: testUserId, ...data });
+  createPrediction = async (data: CreatePredictionType, userTgId?: number) => {
+    return await api.post(`/prediction`, { userTgId, ...data });
   };
 }
 
