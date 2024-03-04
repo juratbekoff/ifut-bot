@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useFetchMatches } from "@/hooks/useMatch";
 import { MatchCard } from "../components";

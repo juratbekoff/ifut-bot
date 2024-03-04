@@ -2,18 +2,19 @@
 import { Route, Routes, useSearchParams } from "react-router-dom";
 import { Home, Match, Payment } from "./pages";
 import { Footer, Navbar } from "./components";
+import { useEffect } from "react";
 
 const App = () => {
   const [searchParams] = useSearchParams();
   const userTgId = searchParams.get("userTgId");
 
-  localStorage.setItem("userTgId", userTgId!);
+  useEffect(() => {
+    localStorage.setItem("userTgId", userTgId!);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen w-[80%] mx-auto max-lg:w-full container">
       <Navbar />
-
-      <h1 className="text-xl font-bold text-center">{userTgId}</h1>
 
       <div className="flex-1 pb-20">
         <Routes>
