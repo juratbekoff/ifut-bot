@@ -12,8 +12,6 @@ const Home = () => {
   const [keyword, setKeyword] = useState("");
   const { user } = useTelegram();
 
-  console.log(user);
-
   const fetchMatchQuery = useFetchMatches(
     {
       page: 1,
@@ -24,26 +22,30 @@ const Home = () => {
   );
 
   useEffect(() => {
-    fetchMatchQuery.refetch();
-  }, [keyword]);
+    if (user) {
+      fetchMatchQuery.refetch();
+    }
+  }, [keyword, user]);
 
   const matchesList: FetchMatchesType = fetchMatchQuery.data?.data;
 
-  return fetchMatchQuery.isLoading ? (
-    <div className="flex flex-col items-center mt-20">
-      <Loader className="animate-spin max-xl:text-2xl text-3xl text-purple-700 text-center" />
-    </div>
-  ) : (
-    <div className="mt-5 max-xl:mt-3 grid max-xl:grid-cols-1 grid-cols-3 gap-5 max-xl:gap-3">
-      <div className="xl:hidden">
-        <Input onChange={setKeyword} />
+  return user ? (
+    fetchMatchQuery.isLoading ? (
+      <div className="flex flex-col items-center mt-20">
+        <Loader className="animate-spin max-xl:text-2xl text-3xl text-purple-700 text-center" />
       </div>
+    ) : (
+      <div className="mt-5 max-xl:mt-3 grid max-xl:grid-cols-1 grid-cols-3 gap-5 max-xl:gap-3">
+        <div className="xl:hidden">
+          <Input onChange={setKeyword} />
+        </div>
 
-      {matchesList?.matches?.map((match) => (
-        <MatchCard action="IN_LIST" key={match.id} data={match} />
-      ))}
-    </div>
-  );
+        {matchesList?.matches?.map((match) => (
+          <MatchCard action="IN_LIST" key={match.id} data={match} />
+        ))}
+      </div>
+    )
+  ) : null;
 };
 
 export default Home;
