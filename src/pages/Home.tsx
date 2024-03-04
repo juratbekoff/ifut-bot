@@ -11,8 +11,6 @@ import WebApp from "@twa-dev/sdk";
 const Home = () => {
   const [keyword, setKeyword] = useState("");
 
-  console.log(WebApp.initDataUnsafe);
-
   const fetchMatchQuery = useFetchMatches(
     {
       page: 1,

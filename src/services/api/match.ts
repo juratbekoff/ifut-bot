@@ -1,6 +1,8 @@
 import { FilterQueryType } from "@/types";
 import { api } from "../configs";
 
+import WebApp from "@twa-dev/sdk";
+
 class Match {
   fetchMatches = async (query: FilterQueryType, userTgId: number) => {
     const { page = 1, limit = 10, keyword = "" } = query;
@@ -10,9 +12,9 @@ class Match {
     );
   };
 
-  getMatchById = async (matchId: number, page: number, userTgId?: number) => {
+  getMatchById = async (matchId: number, page: number) => {
     return await api.get(
-      `/match/single?matchId=${matchId}&userTgId=${userTgId}&page=${page}&limit=10`
+      `/match/single?matchId=${matchId}&userTgId=${WebApp.initDataUnsafe.user?.id}&page=${page}&limit=10`
     );
   };
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { MatchCard } from "@/components";
 import { ParticipantsTable } from "@/components/tables";

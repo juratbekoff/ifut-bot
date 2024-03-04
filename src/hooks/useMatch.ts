@@ -15,11 +15,10 @@ export const useFetchMatches = (query: FilterQueryType, userTgId: number) => {
   });
 };
 
-export const useGetMatchById = (matchId: number, userTgId?: number) => {
+export const useGetMatchById = (matchId: number) => {
   return useInfiniteQuery({
     queryKey: [queryKeys.GET_MATCH_BY_ID],
-    queryFn: (item) =>
-      matchService.getMatchById(matchId, item.pageParam, userTgId),
+    queryFn: (item) => matchService.getMatchById(matchId, item.pageParam),
     initialPageParam: 1,
     getNextPageParam: (match) => {
       const metaData: MetaDataType = match?.data.match.participants.meta;
