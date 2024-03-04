@@ -1,4 +1,11 @@
-const tg = Telegram.WebApp;
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare global {
+  interface Window {
+    Telegram: any;
+  }
+}
+
+const tg = window.Telegram.WebApp;
 
 export function useTelegram() {
   const onClose = () => {

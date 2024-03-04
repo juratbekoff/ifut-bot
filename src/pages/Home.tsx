@@ -6,12 +6,13 @@ import Input from "../components/ui-custom/input";
 import { FetchMatchesType } from "@/types";
 import { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters as Loader } from "react-icons/ai";
+import { useTelegram } from "@/hooks/useTelegram";
 
 const Home = () => {
   const [keyword, setKeyword] = useState("");
+  const { tg } = useTelegram();
 
-  console.log("Below");
-  console.log(Telegram.WebApp);
+  console.log(tg.initDataUnsafe);
   console.log("Above");
 
   const fetchMatchQuery = useFetchMatches(
@@ -20,7 +21,7 @@ const Home = () => {
       limit: 10,
       keyword,
     },
-    1
+    tg.initDataUnsafe.chat?.id!
   );
 
   useEffect(() => {
