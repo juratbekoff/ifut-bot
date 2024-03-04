@@ -1,17 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Route, Routes, useSearchParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Home, Match, Payment } from "./pages";
 import { Footer, Navbar } from "./components";
-import { useEffect } from "react";
 
 const App = () => {
-  const [searchParams] = useSearchParams();
-  const userTgId = searchParams.get("userTgId");
-
-  useEffect(() => {
-    localStorage.setItem("userTgId", userTgId!);
-  }, []);
-
   return (
     <div className="flex flex-col min-h-screen w-[80%] mx-auto max-lg:w-full container">
       <Navbar />

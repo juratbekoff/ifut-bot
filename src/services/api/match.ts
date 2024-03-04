@@ -3,8 +3,7 @@ import { api } from "../configs";
 
 import WebApp from "@twa-dev/sdk";
 
-const userTgId =
-  WebApp.initDataUnsafe.user?.id || localStorage.getItem("userTgId");
+const userTgId = WebApp.initDataUnsafe.user?.id;
 
 class Match {
   fetchMatches = async (query: FilterQueryType) => {
