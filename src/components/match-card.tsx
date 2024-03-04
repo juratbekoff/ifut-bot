@@ -12,8 +12,8 @@ type MatchCardProps = {
 };
 
 const MatchCard = ({ action, data }: MatchCardProps) => {
-  const [scoreClubHome, setScoreClubHome] = useState(0);
-  const [scoreClubAway, setScoreClubAway] = useState(0);
+  const [homeClubScore, setHomeClubScore] = useState(0);
+  const [awayClubScore, setAwayClubScore] = useState(0);
 
   const navigate = useNavigate();
   const createPredictionMutation = useCreatePrediction();
@@ -21,8 +21,8 @@ const MatchCard = ({ action, data }: MatchCardProps) => {
   const onPredict = () => {
     createPredictionMutation.mutate({
       matchId: data.id,
-      scoreClubAway,
-      scoreClubHome,
+      homeClubScore,
+      awayClubScore,
     });
   };
 
@@ -62,7 +62,7 @@ const MatchCard = ({ action, data }: MatchCardProps) => {
                   : "hidden"
               }`}
             >
-              <NumericInput value={scoreClubHome} setValue={setScoreClubHome} />
+              <NumericInput value={homeClubScore} setValue={setHomeClubScore} />
             </div>
           </div>
 
@@ -103,7 +103,7 @@ const MatchCard = ({ action, data }: MatchCardProps) => {
                   : "hidden"
               }`}
             >
-              <NumericInput value={scoreClubAway} setValue={setScoreClubAway} />
+              <NumericInput value={awayClubScore} setValue={setAwayClubScore} />
             </div>
           </div>
         </div>

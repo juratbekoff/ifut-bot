@@ -2,8 +2,8 @@ export type PredictionType = {
   id: number;
   userTgId: number;
   matchId: number;
-  scoreClubHome: number;
-  scoreClubAway: number;
+  homeClubScore: number;
+  awayClubScore: number;
   isCorrect: number;
   createdAt: Date;
   updatedAt: Date;
@@ -12,6 +12,6 @@ export type PredictionType = {
 export type CreatePredictionType = {
   // userTgId: number;
   matchId: number;
-  scoreClubHome: number;
-  scoreClubAway: number;
+  homeClubScore: number;
+  awayClubScore: number;
 };
