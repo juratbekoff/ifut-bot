@@ -11,6 +11,7 @@ import WebApp from "@twa-dev/sdk";
 export const queryClient = new QueryClient();
 
 WebApp.ready();
+WebApp.themeParams.bg_color = `#f5f5f5d6`;
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
