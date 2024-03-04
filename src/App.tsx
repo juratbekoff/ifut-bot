@@ -13,6 +13,8 @@ const App = () => {
     <div className="flex flex-col min-h-screen w-[80%] mx-auto max-lg:w-full container">
       <Navbar />
 
+      <h1 className="text-xl font-bold text-center">{userTgId}</h1>
+
       <div className="flex-1 pb-20">
         <Routes>
           <Route index element={<Home />} />
