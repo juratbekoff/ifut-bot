@@ -12,7 +12,7 @@ const Home = () => {
   const [keyword, setKeyword] = useState("");
   const { tg } = useTelegram();
 
-  console.log(tg);
+  console.log(tg.initDataUnsafe);
 
   const fetchMatchQuery = useFetchMatches(
     {
