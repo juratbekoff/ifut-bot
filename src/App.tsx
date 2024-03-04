@@ -8,8 +8,6 @@ const App = () => {
   const [searchParams] = useSearchParams();
   const userTgId = searchParams.get("userTgId");
 
-  console.log(userTgId);
-
   useEffect(() => {
     localStorage.setItem("userTgId", userTgId!);
   }, []);
