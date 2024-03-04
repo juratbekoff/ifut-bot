@@ -2,7 +2,9 @@ import { CreatePredictionType } from "@/types";
 import { api } from "../configs";
 
 import WebApp from "@twa-dev/sdk";
-const userTgId = WebApp.initDataUnsafe.user?.id;
+
+const userTgId =
+  WebApp.initDataUnsafe.user?.id || localStorage.getItem("userTgId");
 
 class Prediction {
   createPrediction = async (data: CreatePredictionType) => {
