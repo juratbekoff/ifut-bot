@@ -1,9 +1,12 @@
 import { FilterQueryType } from "@/types";
 import { api } from "../configs";
 
+Telegram.WebApp.ready();
+
 class Match {
   fetchMatches = async (query: FilterQueryType) => {
     const { page = 1, limit = 10, keyword = "" } = query;
+
     const testUserId = Telegram.WebApp.initDataUnsafe.user?.id;
 
     return await api.get(
