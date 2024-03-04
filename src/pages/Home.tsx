@@ -12,6 +12,8 @@ const Home = () => {
   const [keyword, setKeyword] = useState("");
   const { tg } = useTelegram();
 
+  console.log(tg);
+
   const fetchMatchQuery = useFetchMatches(
     {
       page: 1,
