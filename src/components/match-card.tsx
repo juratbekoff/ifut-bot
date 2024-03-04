@@ -20,11 +20,9 @@ const MatchCard = ({ action, data }: MatchCardProps) => {
 
   const onPredict = () => {
     createPredictionMutation.mutate({
-      data: {
-        matchId: data.id,
-        scoreClubAway,
-        scoreClubHome,
-      },
+      matchId: data.id,
+      scoreClubAway,
+      scoreClubHome,
     });
   };
 

@@ -3,8 +3,10 @@ import { api } from "../configs";
 
 import WebApp from "@twa-dev/sdk";
 
+const userTgId = WebApp.initDataUnsafe.user?.id;
+
 class Match {
-  fetchMatches = async (query: FilterQueryType, userTgId: number) => {
+  fetchMatches = async (query: FilterQueryType) => {
     const { page = 1, limit = 10, keyword = "" } = query;
 
     return await api.get(
@@ -14,7 +16,7 @@ class Match {
 
   getMatchById = async (matchId: number, page: number) => {
     return await api.get(
-      `/match/single?matchId=${matchId}&userTgId=${WebApp.initDataUnsafe.user?.id}&page=${page}&limit=10`
+      `/match/single?matchId=${matchId}&userTgId=${userTgId}&page=${page}&limit=10`
     );
   };
 }

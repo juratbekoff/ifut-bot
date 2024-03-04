@@ -6,19 +6,15 @@ import Input from "../components/ui-custom/input";
 import { FetchMatchesType } from "@/types";
 import { useEffect, useState } from "react";
 import { AiOutlineLoading3Quarters as Loader } from "react-icons/ai";
-import WebApp from "@twa-dev/sdk";
 
 const Home = () => {
   const [keyword, setKeyword] = useState("");
 
-  const fetchMatchQuery = useFetchMatches(
-    {
-      page: 1,
-      limit: 10,
-      keyword,
-    },
-    WebApp.initDataUnsafe.user?.id!
-  );
+  const fetchMatchQuery = useFetchMatches({
+    page: 1,
+    limit: 10,
+    keyword,
+  });
 
   useEffect(() => {
     fetchMatchQuery.refetch();
