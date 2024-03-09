@@ -10,7 +10,7 @@ class Match {
     const { page = 1, limit = 10, keyword = "" } = query;
 
     return await api.get(
-      `/match?page=${page}&limit=${limit}&keyword=${keyword}&userTgId=${userTgId}`
+      `/match?page=${page}&limit=${limit}&keyword=${keyword}&userTgId=${userTgId}&usageBy=USER`
     );
   };
 
