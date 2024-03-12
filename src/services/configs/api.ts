@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const baseURL_LOCAL = "http://localhost:3000/api/v1";
-const baseURL_PROD = "http://173.212.232.106:3002/api/v1";
+const baseURL_PROD = "https://api.ifut.uz/api/v1";
 
 const api = axios.create({
   baseURL: baseURL_PROD,
