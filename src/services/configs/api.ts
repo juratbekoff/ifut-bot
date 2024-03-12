@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:3000/api/v1";
+// const baseURL_LOCAL = "http://localhost:3000/api/v1";
+const baseURL_PROD = "http://173.212.232.106:3002/api/v1";
 
 const api = axios.create({
-  baseURL,
+  baseURL: baseURL_PROD,
 });
 
 api.interceptors.request.use(async (config) => {
