@@ -46,7 +46,7 @@ const MatchCard = ({ action, data }: MatchCardProps) => {
           {/* Club 1*/}
           <div className="flex flex-col items-center gap-1">
             <div>
-              <img src={data?.homeClub?.logo} className="h-8" />
+              <img src={data?.homeClub?.logo} className="h-9" />
             </div>
 
             <h1 className="text-xs font-medium break-normal w-[150px] leading-3 text-center">
@@ -87,7 +87,7 @@ const MatchCard = ({ action, data }: MatchCardProps) => {
           {/* Club 2 */}
           <div className="flex flex-col items-center gap-1">
             <div>
-              <img src={data?.awayClub?.logo} className="h-8" />
+              <img src={data?.awayClub?.logo} className="h-9" />
             </div>
 
             <h1 className="text-xs font-medium break-normal w-[150px] leading-3 text-center">
