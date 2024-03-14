@@ -24,7 +24,7 @@ export type MatchType = {
   updatedAt: Date;
   user?: {
     isUserPredicted: boolean;
-    isUserPredictionCorrect: boolean;
+    isWin: boolean;
     prediction: {
       homeClubScore: number;
       awayClubScore: number;

@@ -141,14 +141,14 @@ const MatchCard = ({ action, data }: MatchCardProps) => {
             {data?.status === "FINISHED" && (
               <span
                 className={`font-bold mt-1 text-sm ${
-                  data?.user?.isUserPredictionCorrect
+                  data?.user?.isWin
                     ? "text-green-500 font-bold text-base"
                     : "text-red-500 font-bold text-base"
                 }`}
               >
-                {data?.user?.isUserPredictionCorrect
+                {data?.user?.isWin
                   ? "Tabriklaymiz, siz g'olib bo'ldingiz!"
-                  : "Afsuski, taxmin xato chiqdi!"}
+                  : "Afsuski, g'oliblik sizga nasib qilmadi!"}
               </span>
             )}
           </div>
