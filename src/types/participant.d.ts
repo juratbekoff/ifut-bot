@@ -9,6 +9,7 @@ export type ParticipantType = {
   createdAt: Date;
   updatedAt: Date;
   isCorrect: boolean;
+  isWin: boolean;
   homeClubScore: number;
   awayClubScore: number;
 };

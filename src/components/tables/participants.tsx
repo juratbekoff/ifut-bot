@@ -30,21 +30,21 @@ const ParticipantsTable = ({ data }: ParticipantProps) => {
             <TableRow key={participant.id}>
               <TableCell
                 className={`${
-                  participant.isCorrect && "font-bold text-green-600 text-xs"
+                  participant.isWin && "font-bold text-green-600 text-xs"
                 }`}
               >
                 #{participant.id}
               </TableCell>
               <TableCell
                 className={`${
-                  participant.isCorrect && "font-bold text-green-600 text-xs"
+                  participant.isWin && "font-bold text-green-600 text-xs"
                 }`}
               >
                 {participant.name}
               </TableCell>
               <TableCell
                 className={` font-semibold ${
-                  participant.isCorrect && "font-bold text-green-600 text-xs"
+                  participant.isWin && "font-bold text-green-600 text-xs"
                 }`}
               >
                 ({participant.homeClubScore} - {participant.awayClubScore})
