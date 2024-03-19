@@ -16,7 +16,7 @@ class Match {
 
   getMatchById = async (matchId: number, page: number) => {
     return await api.get(
-      `/match/single/user?matchId=${matchId}&userTgId=${userTgId}&page=${page}&limit=10`
+      `/match/with-participants?matchId=${matchId}&userTgId=${userTgId}&page=${page}&limit=10`
     );
   };
 }
