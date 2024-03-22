@@ -5,7 +5,7 @@ import { Footer, Navbar } from "./components";
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen w-[80%] mx-auto max-lg:w-full container">
+    <div className="flex flex-col min-h-screen w-[80%] mx-auto max-lg:w-full container ">
       <Navbar />
 
       <div className="flex-1 pb-20">

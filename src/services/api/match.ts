@@ -2,8 +2,9 @@ import { FilterQueryType } from "@/types";
 import { api } from "../configs";
 
 import WebApp from "@twa-dev/sdk";
-
 const userTgId = WebApp.initDataUnsafe.user?.id;
+
+// const userTgId = 791944079;
 
 class Match {
   fetchMatches = async (query: FilterQueryType) => {

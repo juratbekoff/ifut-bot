@@ -1,4 +1,4 @@
-const Input = ({
+const CustomInput = ({
   placeholder,
   onChange,
 }: {
@@ -21,4 +21,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default CustomInput;

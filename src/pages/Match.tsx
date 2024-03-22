@@ -5,12 +5,21 @@ import { ParticipantsTable } from "@/components/tables";
 import { useGetMatchById } from "@/hooks/useMatch";
 import { MatchType } from "@/types";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { LuLoader2 } from "react-icons/lu";
 import { useParams } from "react-router-dom";
 
 const Match = () => {
   const { matchId } = useParams();
 
   const getMatchQuery = useGetMatchById(+matchId!);
+
+  if (getMatchQuery.isError) {
+    if (getMatchQuery.error.message === "Request failed with status code 404") {
+      return (
+        <h1 className="mt-32 text-center">Uchrashuv ma'lumotlari topilmadi!</h1>
+      );
+    }
+  }
 
   const matchData: MatchType = {
     ...getMatchQuery.data?.pages.map((item) => item?.data)[0]?.match,
@@ -24,7 +33,11 @@ const Match = () => {
     },
   };
 
-  return (
+  return getMatchQuery.isLoading ? (
+    <div className="flex justify-center mt-24">
+      <LuLoader2 className="animate-spin text-3xl text-purple-600" />
+    </div>
+  ) : (
     <div className="mt-4 flex flex-col gap-5">
       {/* Match details */}
       <div className="p-2 bg-white rounded-md pb-5 shadow-sm border">

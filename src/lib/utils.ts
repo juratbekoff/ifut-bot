@@ -7,11 +7,15 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const numberSpacer = (amount: number) => {
+  return parseInt(String(amount), 10).toLocaleString().replace(/,/g, " ");
+};
+
 export const customToast = (type: "SUCCESS" | "ERROR", message: string) => {
   switch (type) {
     case "SUCCESS":
       toastResponsive.success(`${message}`, {
-        duration: 3000,
+        duration: 2000,
       });
       break;
     case "ERROR":
